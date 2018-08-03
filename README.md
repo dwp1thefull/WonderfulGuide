@@ -59,7 +59,7 @@
       }
   ……   
   }
-   
+
   ~~~
   - Service : BindBaseService를 상속받아 Service를 구성한다.
   ~~~
@@ -80,3 +80,36 @@
   ~~~
 
   - onMainServiceConnected의 콜백을 받으면 Snabot의 api를 사용할 준비가 되었음을 의미한다.
+
+* Sanbot 컨트롤 매니저 리스트
+  ~~~
+  // Access SpeechManager
+  SpeechManager speechManager = (SpeechManager)getUnitManager(FuncConstant. SPEECH_MANAGER);
+  
+  // Access HardWareManager
+  HardWareManager hardWareManager = (HardWareManager)getUnitManager(FuncConstant.HARDWARE_MANAGER);
+
+  // Access HeadMotionManager
+  HeadMotionManager headMotionManager= (HeadMotionManager)getUnitManager(FuncConstant.HEADMOTION_MANAGER);
+
+  // Access HandMotionManager
+  HandMotionManager handMotionManager= (HandMotionManager)getUnitManager(FuncConstant.HANDMOTION_MANAGER);
+
+  // Access WheelMotionManager
+  WheelMotionManager wheelMotionManager= (WheelMotionManager)getUnitManager(FuncConstant.WHEELMOTION_MANAGER);
+
+  // Access SystemManager
+  SystemManager systemManager= (SystemManager)getUnitManager(FuncConstant. SYSTEM_MANAGER);
+
+  // Access MediaManager
+  MediaManager mediaManager= (MediaManager)getUnitManager(FuncConstant.MEDIA_MANAGER);
+
+  // Access PojectorManager
+  PojectorManager projectorManager = (ProjectorManager)getUnitManager(FuncConstant.PROJECTOR_MANAGER);
+
+  // Access ModularMotionManager
+  ModularMotionManager modularMotionManager= (ModularMotionManager)getUnitManager(FuncConstant. MODULARMOTION_MANAGER);
+
+  // Access ZigbeeManager
+  ZigbeeManager zigbeeManager = (ZigbeeManager)getUnitManager(FuncConstant.ZIGBEE_MANAGER);
+  ~~~
