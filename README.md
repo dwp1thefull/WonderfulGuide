@@ -1,5 +1,5 @@
 ## 산봇 개발 가이드
-
+----
 ### 개발 환경 기본정보
  * 개발환경 정보
     - Android 6.0
@@ -7,11 +7,11 @@
  * 개발시 고려사항
     - Google이 제공하는 서비스를 지원하지 않습니다. Google이 제공하는 관련 APIs를 사용하는 개발을 피해주시기 바랍니다.
     - Boot Broadcast를 사용하기 위해 최소한 앱을 1회 실행하여야 합니다. 산봇과 관련된 기능을 사용하기 위해 아래의 연동가이드를 참고해 주세요.
----
+
 ### 가이드 개발환경
  * Android Studio 3.0
  * Androidd 6.0 (SDK API Level 14) 이상 설치
----
+
 ### 프로젝트 구조 설정
  * 산봇 제어 라이브러리 등록 방법
    - aar 파일을 libs폴더에 넣도록 한다.
@@ -40,7 +40,7 @@
 ~~~
 -keep class com.sanbotcloud.opensdk.** {*;}
 ~~~
----
+
 ### 앱 개발 기본 설정
 * 컴포넌트 설정
   - Activity : BindBaseActivity를 상속받아 Activity를 구성한다.
@@ -116,7 +116,33 @@
 - 산봇의 각 Manager에 접근하여 세부 기능을 제어한다.
 ---
 ### 기능별 세부 예제
-* 음성인식
+* 음성 출력 [**SpeechManager**]
+  ~~~
+  public OperationResult startSpeak(String text)
+  ~~~
+* 음성 입력  [**SpeechManager**]
+  - 음성 입력 대기 상태 요청
+  ~~~
+  speechManager.doWakeUp();
+  ~~~
+  - 음성 입력 중지 상태 요청
+  ~~~
+  speechManager.doSleep();
+  ~~~
+  - 음성 입력
+  ~~~
+  speechManager.setOnSpeechListener(new RecognizeListener() {
+    @Override
+    public boolean onRecognizeResult(Grammar grammar) {
+      String speechToText = grammer.getText() // 음성입력 처리 콜백
+    }
+    @Override
+    public void onRecognizeVolume(int i) {  
+      // 음성입력 볼륨 콜백
+    }
+  }
+  ~~~ 
 * 하드웨어 컨트롤
-* 얼굴인
+* 얼굴인식
+* 카메라
 ---
