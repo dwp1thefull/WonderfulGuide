@@ -35,3 +35,48 @@
   <uses-permission android:name='android.permission.ACCESS_WIFI_STATE'/>
   <uses-permission android:name='android.permission.ACCESS_NETWORK_STATE'/>
 ~~~
+* Proguard 설정
+  - Proguard를 사용한다면 아래와 같이 Proguard 설정을 한다.
+~~~
+-keep class com.sanbotcloud.opensdk.** {*;}
+~~~
+
+### 앱 개발 기본 설정
+* 컴포넌트 설정
+  - Activity : BindBaseActivity를 상속받아 Activity를 구성한다.
+  ~~~
+  public class SampleActivity extends BindBaseActivity {
+  ……
+      @Override
+      protected void onMainServiceConnected() {
+          //control code
+      }
+  ……
+      @Override
+      public void onCreate() {
+          register(SampleActivity.class);
+          super.onCreate();
+      }
+  ……   
+  }
+   
+  ~~~
+  - Service : BindBaseService를 상속받아 Service를 구성한다.
+  ~~~
+  public class SampleService extends BindBaseService {
+  ……
+      @Override
+      protected void onMainServiceConnected() {
+          //control code
+      }
+  ……
+      @Override
+      public void onCreate() {
+          register(SampleService.class);
+          super.onCreate();
+      }
+  ……   
+  }
+  ~~~
+
+  - onMainServiceConnected의 콜백을 받으면 Snabot의 api를 사용할 준비가 되었음을 의미한다.
