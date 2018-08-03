@@ -81,7 +81,7 @@
 
   - onMainServiceConnected의 콜백을 받으면 Snabot의 api를 사용할 준비가 되었음을 의미한다.
 
-* Sanbot 컨트롤 매니저 리스트
+* Sanbot 컨트롤 매니저 연결
   ~~~
   // Access SpeechManager
   SpeechManager speechManager = (SpeechManager)getUnitManager(FuncConstant. SPEECH_MANAGER);
@@ -113,3 +113,10 @@
   // Access ZigbeeManager
   ZigbeeManager zigbeeManager = (ZigbeeManager)getUnitManager(FuncConstant.ZIGBEE_MANAGER);
   ~~~
+- 산봇의 각 Manager에 접근하여 세부 기능을 제어한다.
+---
+### 기능별 세부 예제
+* 음성인식
+* 하드웨어 컨트롤
+* 얼굴인
+---
