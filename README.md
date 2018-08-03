@@ -142,7 +142,42 @@
     }
   }
   ~~~ 
-* 하드웨어 컨트롤
-* 얼굴인식
-* 카메라
+* 하드웨어 컨트롤 [**HardWareManager**]
+   - LED 켜기/끄기
+   ~~~
+   hardWareManager.switchWhiteLight(true); // turn on
+   hardWareManager.switchWhiteLight(false); // turn off
+   ~~~
+   - 터치 센서 이벤트
+   ~~~
+   hardWareManager.setOnHareWareListener(new TouchSensorListener() {
+    @Override
+    public void onTouch(int part) {
+        if (part == 11 || part == 12 || part == 13) {
+            touchTv.setText(‘Head had been touched’);
+        }
+      }
+    });
+   ~~~
+   - PIR센서 이벤트
+   ~~~
+   hardWareManager.setOnHareWareListener(new PIRListener() {
+    @Override
+    public void onPIRCheckResult(boolean isCheck, int part) {
+        System.out.print((part == 1 ? ‘Front of the body’ : ‘Back of the body’) + ‘PIR has been triggered’);
+      }
+    });
+   ~~~
+* Movement 컨트롤 [**HeadMotionManager**, **HandMotionManager**, **WheelMotionManager**]
+   - 머리 움직임(**HeadMotionManager**)
+   ~~~
+   public OperationResult doRelativeAngleMotion(RelativeAngleHeadMotion relativeAngleHeadMotion)
+   ~~~
+   - 팔 움직임(**HandMotionManager**)
+   ~~~
+   public OperationResult doNoAngleMotion(NoAngleHandMotion noAngleHandMotion)
+   ~~~
+
+* 얼굴인식22
+* 카메라2
 ---
