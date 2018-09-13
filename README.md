@@ -69,7 +69,7 @@
       protected void onMainServiceConnected() {
           //control code
       }
-  ・・・
+ 
       @Override
       public void onCreate() {
           register(SampleService.class);
@@ -171,7 +171,25 @@
 * Movement 컨트롤 [**HeadMotionManager**, **HandMotionManager**, **WheelMotionManager**]
    - 머리 움직임(**HeadMotionManager**)
    ~~~
-   public OperationResult doRelativeAngleMotion(RelativeAngleHeadMotion relativeAngleHeadMotion)
+   /**
+     * 각도 조작이 없는 머리 움직임
+     *  new NoAngleHandMotion(Action, Speed,  Part)
+     *  Action :
+     *  		RelativeAngleHandMotion.ACTION_UP //hands up 
+     *  		RelativeAngleHandMotion.ACTION_DOWN //hands down
+     *  Speed : 1~8
+     *  Part :
+     *  		RelativeAngleHandMotion.PART_LEFT  //control left hand
+     *  		RelativeAngleHandMotion.PART_RIGHT  //control right hand
+     *         RelativeAngleHandMotion.PART_BOTH  //control both**
+     *   
+     */ 
+     
+	   NoAngleHandMotion motion =new NoAngleHandMotion(NoAngleHandMotion._PART_BOTH_, 5 ,NoAngleHandMotion._ACTION_UP_);
+	   handMotionManager.doNoAngleHandMotion(motion);
+   
+   // 각도설정에 따른 머리 움직임
+   
    ~~~
    - 팔 움직임(**HandMotionManager**)
    ~~~
