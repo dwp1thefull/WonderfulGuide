@@ -182,7 +182,7 @@
      *  Part :
      *  		RelativeAngleHandMotion.PART_LEFT  //control left hand
      *  		RelativeAngleHandMotion.PART_RIGHT  //control right hand
-     *         RelativeAngleHandMotion.PART_BOTH  //control both
+     *  		RelativeAngleHandMotion.PART_BOTH  //control both
      */ 
      
 	   NoAngleHandMotion motion = new NoAngleHandMotion(NoAngleHandMotion._PART_BOTH_, 5 ,NoAngleHandMotion._ACTION_UP);
@@ -200,7 +200,7 @@
      *  Part :
      *  		RelativeAngleHandMotion.PART_LEFT  //control left hand
      *  		RelativeAngleHandMotion.PART_RIGHT  //control right hand
-     *         RelativeAngleHandMotion.PART_BOTH  //control both
+     *  		RelativeAngleHandMotion.PART_BOTH  //control both
      *   Angle : 0 ~ 270
      */ 
      
@@ -226,7 +226,7 @@
 	 *	      	RelativeAngleHeadMotion.ACTION_RIGHTDOWN
 	 *	      	RelativeAngleHeadMotion.ACTION_VERTICAL_RESET
 	 *	      	RelativeAngleHeadMotion.ACTION_HORIZONTAL_RESET
-	 *	      	 RelativeAngleHeadMotion.ACTION_CENTER_RESET
+	 *	      	RelativeAngleHeadMotion.ACTION_CENTER_RESET
      *  Speed : 1~8
      */ 
      
