@@ -1,5 +1,5 @@
 ## 산봇 개발 가이드
-----
+
 ### 개발 환경 기본정보
  * 개발환경 정보
     - Android 6.0
@@ -168,11 +168,12 @@
       }
     });
    ~~~
-* Movement 컨트롤 [**HeadMotionManager**, **HandMotionManager**, **WheelMotionManager**]
-   - 팔 움직임(**HandMotionManager**)
+----
+*  팔 움직임 [**HandMotionManager**]
+   - 각도 조작이 없는 팔 움직임
    ~~~
    /**
-     *  각도 조작이 없는 팔 움직임
+     *  
      *  NoAngleHandMotion
      *  Action :
      *  		RelativeAngleHandMotion.ACTION_UP //hands up 
@@ -184,11 +185,13 @@
      *         RelativeAngleHandMotion.PART_BOTH  //control both
      */ 
      
-	   NoAngleHandMotion motion =new NoAngleHandMotion(NoAngleHandMotion._PART_BOTH_, 5 ,NoAngleHandMotion._ACTION_UP);
+	   NoAngleHandMotion motion = new NoAngleHandMotion(NoAngleHandMotion._PART_BOTH_, 5 ,NoAngleHandMotion._ACTION_UP);
 	   handMotionManager.doNoAngleHandMotion(motion);
-   
+   ~~~
+   - 각도 설정에 의한 팔 움직임
+   ~~~
    /**
-     *  각도 설정에 의한 팔 움직임
+     *  
      *  NoAngleHandMotion
      *  Action :
      *  		RelativeAngleHandMotion.ACTION_UP //hands up 
@@ -201,15 +204,52 @@
      *   Angle : 0 ~ 270
      */ 
      
-	   RelativeAngleHandMotion motion =new RelativeAngleHandMotion(NoAngleHandMotion.PART_LEFT, 5 ,NoAngleHandMotion.ACTION_UP, 30);
+	   RelativeAngleHandMotion motion = new RelativeAngleHandMotion(NoAngleHandMotion.PART_LEFT, 5 ,NoAngleHandMotion.ACTION_UP, 30);
 	   handMotionManager.doRelativeAngleMotion(motion);
-   
    ~~~
-   - 머리 움직임(**HeadMotionManager**)
+   ---
+*  머리 움직임 [**HeadMotionManager**]
+   - 현재 포지션에 따른 각도설정에 의한 머리 움직임
    ~~~
-   public OperationResult doNoAngleMotion(NoAngleHandMotion noAngleHandMotion)
+   /**
+     *  현재 포지션에 따른 각도설정에 의한 머리 움직임
+     *  RelativeAngleHeadMotion
+     *  Action :
+	 *	      	RelativeAngleHeadMotion.ACTION_STOP
+	 *	      	RelativeAngleHeadMotion.ACTION_UP
+	 *	      	RelativeAngleHeadMotion.ACTION_DOWN
+	 *	      	RelativeAngleHeadMotion.ACTION_LEFT
+	 *	      	RelativeAngleHeadMotion.ACTION_RIGHT
+	 *	      	RelativeAngleHeadMotion.ACTION_LEFTUP
+	 *	      	RelativeAngleHeadMotion.ACTION_RIGHTUP
+	 *	      	RelativeAngleHeadMotion.ACTION_LEFTDOWN
+	 *	      	RelativeAngleHeadMotion.ACTION_RIGHTDOWN
+	 *	      	RelativeAngleHeadMotion.ACTION_VERTICAL_RESET
+	 *	      	RelativeAngleHeadMotion.ACTION_HORIZONTAL_RESET
+	 *	      	 RelativeAngleHeadMotion.ACTION_CENTER_RESET
+     *  Speed : 1~8
+     */ 
+     
+	   RelativeAngleHeadMotion motion = new RelativeAngleHeadMotion(RelativeAngleHeadMotion.ACTION_RIGHT, 30NoAngleHandMotion._ACTION_UP);
+	   headMotionManager.doRelativeAngleMotion(motion);
+    ~~~
+    - 왼쪽에서 오른쪽 0~180에 대한 각도설정에 움직임
+     ~~~
+   /**
+     *  
+     *  AbsoluteAngleHeadMotion
+     *  Action :
+     *  		1, VERTICAL
+     *  		2, HORIZONTAL
+     *   Angle : 
+     *         0~180(HORIZONTAL), 7~30(VERTICAL)
+     */ 
+     
+	   AbsoluteAngleHeadMotion motion = new AbsoluteAngleHeadMotion(AbsoluteAngleHeadMotion.ACTION_HORIZONTAL.PART_LEFT, 130); 
+	   headMotionManager.doAbsoluteAngleHeadMotion(motion);
    ~~~
-
+----
 * 얼굴인식22
+----
 * 카메라2
 ---
