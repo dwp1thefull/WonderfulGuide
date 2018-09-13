@@ -46,36 +46,36 @@
   - Activity : BindBaseActivity를 상속받아 Activity를 구성한다.
   ~~~
   public class SampleActivity extends BindBaseActivity {
-  ……
+   
       @Override
       protected void onMainServiceConnected() {
           //control code
       }
-  ……
+  ・・・
       @Override
       public void onCreate() {
           register(SampleActivity.class);
           super.onCreate();
       }
-  ……   
+  ・・・   
   }
 
   ~~~
   - Service : BindBaseService를 상속받아 Service를 구성한다.
   ~~~
   public class SampleService extends BindBaseService {
-  ……
+  ・・・
       @Override
       protected void onMainServiceConnected() {
           //control code
       }
-  ……
+  ・・・
       @Override
       public void onCreate() {
           register(SampleService.class);
           super.onCreate();
       }
-  ……   
+  ・・・   
   }
   ~~~
 
