@@ -120,6 +120,7 @@
   ~~~
   public OperationResult startSpeak(String text)
   ~~~
+  ----
 * 음성 입력  [**SpeechManager**]
   - 음성 입력 대기 상태 요청
   ~~~
@@ -142,6 +143,7 @@
     }
   }
   ~~~ 
+  ----
 * 하드웨어 컨트롤 [**HardWareManager**]
    - LED 켜기/끄기
    ~~~
