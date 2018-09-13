@@ -248,8 +248,55 @@
 	   AbsoluteAngleHeadMotion motion = new AbsoluteAngleHeadMotion(AbsoluteAngleHeadMotion.ACTION_HORIZONTAL.PART_LEFT, 130); 
 	   headMotionManager.doAbsoluteAngleHeadMotion(motion);
    ~~~
-----
-* 얼굴인식22
-----
-* 카메라2
+    - 가운데 고정
+    ~~~
+	headMotionManager.dohorizontalCenterLockMotion();
+    ~~~
 ---
+* 휠 [**WheelMotionManager**]
+	* 각도 설정 없이 앞으로, 회전 등
+	~~~
+	
+	/**
+	  * NoAngleWheelMotion
+	  * Action : 
+	  *		  NoAngleWheelMotion.ACTION_FORWARD_RUN
+	  *		  NoAngleWheelMotion.ACTION_LEFT_CIRCLE
+	  *		  NoAngleWheelMotion.ACTION_RIGHT_CIRCLE
+	  *		  NoAngleWheelMotion.ACTION_TURN_LEFT
+	  *		  NoAngleWheelMotion.ACTION_TURN_RIGHT
+	  *		  NoAngleWheelMotion.ACTION_STOP_TURN
+	  *		  NoAngleWheelMotion.ACTION_STOP_RUN
+	  *	Speed : 1~10(max)
+	  *	During : unit is 100ms
+	  */
+	  NoAngleWheelMotion motion = new NoAngleWheelMotion(NoAngleWheelMotion.ACTION_FORWAR_RUN, 5 , 3000);
+	  wheelMotionManager.doNoAngleMotion(motion);
+	~~~
+----
+* 얼굴인식 [**MediaManager**]
+	* 얼굴인식 Callback
+	~~~
+	mediaManager.setMediaListener(new FaceRecognizeListener() {  
+	@Override  
+		public void recognizeResult(List<FaceRecognizeBean> faceRecognizeBean) {  
+			Log.i("info","Data has been fetched successfully");  
+		}	  
+	});
+	~~~
+	* FaceRecognizeBean Params
+	~~~
+		private int w //the width of image，default1280 pixels 
+		private String birthday // the birthday of user which was input in Family Member App  
+		private String gender // Gender info which was input in Family Member App
+		private String qlink // reserved
+		private double top // the percentage of the screen’s top position
+		private double bottom // the percentage of the screen’s bottom position
+		private double left //the percentage of the screen’s left position
+		private double right // the percentage of the screen’s right position
+		private String user //user name which was input in Family Member App
+		private int h // the high of image，default1280 pixels
+	~~~
+----
+
+
